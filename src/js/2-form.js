@@ -6,7 +6,7 @@ let formData = {
 };
 
 form.addEventListener('input', (evt) => {
-  c
+  formData[evt.target.name] = evt.target.value.trim();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 });
 
@@ -29,15 +29,16 @@ initPage();
 
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  formData[evt.target.name] = evt.target.value;
-  
-  const email =  form.elements.email.value;
-  const message =  form.elements.message.value;
+    
+  // const email =  form.elements.email.value;
+  // const message =  form.elements.message.value;
+const email =  formData.email;
+  const message =  formData.message;
 
  if (!email || !message) {
     return alert('Fill please all fields');
   }
-  console.log(`Email: ${email}, Message: ${message}`);
+  console.log(`Email: ${formData.email}, Message: ${formData.message}`);
   localStorage.removeItem(STORAGE_KEY);
   formData = { email: '', message: '' };
   form.reset();
