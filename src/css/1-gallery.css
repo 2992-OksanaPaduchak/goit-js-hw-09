@@ -1,0 +1,27 @@
+
+body {
+  background: #fff;
+}
+img {
+  display: block;
+ }
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.gallery-item {
+  list-style: none;
+  flex-basis: calc((100% - 2 * 24px) / 3);
+}
+
+.sl-wrapper {
+    background: rgba(46, 47, 66, 0.8);
+}
