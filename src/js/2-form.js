@@ -15,7 +15,7 @@ function loadFromLS(key) {
   try {
     const data = JSON.parse(body);
     return data;
-  } catch {
+  } catch (e) {
     return body;
   }
 }
@@ -30,15 +30,14 @@ initPage();
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
     
-  // const email =  form.elements.email.value;
-  // const message =  form.elements.message.value;
-const email =  formData.email;
-  const message =  formData.message;
+  const email =  form.elements.email.value;
+  const message =  form.elements.message.value;
+
 
  if (!email || !message) {
     return alert('Fill please all fields');
   }
-  console.log(`Email: ${formData.email}, Message: ${formData.message}`);
+  console.log(`Email: ${email}, Message: ${message}`);
   localStorage.removeItem(STORAGE_KEY);
   formData = { email: '', message: '' };
   form.reset();
