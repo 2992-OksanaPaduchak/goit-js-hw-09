@@ -20,10 +20,11 @@ function loadFromLS(key) {
   }
 }
 function initPage() {
-  const formData = loadFromLS(STORAGE_KEY);
+  const str = loadFromLS(STORAGE_KEY);
+  formData = { ...formData, ...data };
   form.elements.email.value = formData?.email || '';
-  form.elements.message.value = formData?.message  || '';
-}
+  form.elements.message.value = formData?.message || '';
+ }
 
 initPage();
 
