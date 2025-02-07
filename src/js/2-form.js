@@ -6,8 +6,10 @@ let formData = {
 };
 
 form.addEventListener('input', (evt) => {
-  formData[evt.target.name] = evt.target.value.trim();
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  if (typeof evt.target.value === 'string') {
+    formData[evt.target.name] = evt.target.value.trim();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  }
 });
 
 function loadFromLS(key) {
@@ -21,7 +23,7 @@ function loadFromLS(key) {
 }
 function initPage() {
   const str = loadFromLS(STORAGE_KEY);
-  formData = { ...formData, ...data };
+  formData = { ...formData, ...str };
   form.elements.email.value = formData?.email || '';
   form.elements.message.value = formData?.message || '';
  }
