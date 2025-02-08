@@ -33,14 +33,14 @@ initPage();
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
     
-  const email =  form.elements.email.value;
-  const message =  form.elements.message.value;
+  const email =  form.elements.email.value.trim();
+  const message =  form.elements.message.value.trim();
 
 
  if (!email || !message) {
     return alert('Fill please all fields');
   }
-  console.log(`Email: ${email}, Message: ${message}`);
+  console.log(formData);
   localStorage.removeItem(STORAGE_KEY);
   formData = { email: '', message: '' };
   form.reset();
